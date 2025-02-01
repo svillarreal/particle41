@@ -1,0 +1,33 @@
+{
+    "name": "simple-time-service",
+    "version": "1.0.0-beta",
+    "author": "santiago.villarreal",
+    "license": "UNLICENSED",
+    "type": "module",
+    "scripts": {
+        "test": "mocha",
+        "lint": "eslint \"src/**/*.{js,ts}\"",
+        "lint:fix": "eslint \"src/**/*.{js,ts}\" --fix",
+        "build": "tsc",
+        "start": "node dist/app.js"
+    },
+    "devDependencies": {
+        "@eslint/js": "^9.19.0",
+        "@types/cors": "^2.8.17",
+        "@types/dotenv": "^6.1.1",
+        "@types/express": "^5.0.0",
+        "@types/helmet": "^0.0.48",
+        "@types/http-status-codes": "^1.2.0",
+        "eslint": "^9.19.0",
+        "ts-node": "^10.9.2",
+        "typescript": "^5.7.3",
+        "typescript-eslint": "^8.22.0"
+    },
+    "dependencies": {
+        "cors": "^2.8.5",
+        "dotenv": "^16.4.7",
+        "express": "^4.21.2",
+        "helmet": "^8.0.0",
+        "http-status-codes": "^2.3.0"
+    }
+}
