@@ -1,18 +1,24 @@
-import express, { Request, Response, Router } from "express";
+import { Request, Response, Router } from "express";
 import { StatusCodes } from "http-status-codes";
-import getTime from "./time-service.js"
+import { TimeService } from "./time-service.js";
+import { TimeResponse } from "./types/time-response.js";
 
-const router = Router();
+export class Routes {
 
-router.get("/time", doGetTime());
+    private router = Router();
+    private timeService: TimeService;
 
-function doGetTime(): any {
-    return (req: Request, res: Response) => {
-        res.status(StatusCodes.OK).json({
-            timestamp: getTime(),
-            ip: req.ip // In a second iteration we could first check the x-forward header for cases in which client is behind a chain of proxies
-        });
-    };
+    constructor(timeService: TimeService) {
+        this.timeService = timeService;
+        this.router.get("/time", (req: Request, res: Response) => { this.doGetTime(req, res) });
+    }
+
+    doGetTime = async (req: Request, res: Response): Promise<void> => {
+        const body: TimeResponse = {
+            timestamp: this.timeService.getTime(),
+            ip: req.ip
+        };
+        res.status(StatusCodes.OK).json(body);
+    }
+
 }
-
-export default router;

@@ -4,8 +4,10 @@ import express from "express";
 import helmet from "helmet";
 import path from "path";
 import { fileURLToPath } from "url";
-import router from "./routes.js"
+import { TimeService } from "./time-service.js";
+import { Routes } from "./routes.js"
 
+const routes = new Routes(new TimeService());
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -20,7 +22,7 @@ app.use(express.json())
 app.use(cors())
 app.use(helmet())
 
-app.use("/api", router)
+app.use("/api", routes.doGetTime)
 
 app.listen(PORT, () => {
     console.log(`Welcome! Server running on port ${PORT}`)

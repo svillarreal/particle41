@@ -1,4 +1,8 @@
 
-export default function getTime(): string {
-    return new Date().toISOString();
+export class TimeService {
+
+    getTime(): string {
+        return new Date().toISOString();
+    }
+
 }
