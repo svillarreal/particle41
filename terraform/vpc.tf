@@ -1,7 +1,7 @@
 module "vpc" {
   source = "terraform-aws-modules/vpc/aws"
 
-  name = "particle41-vpc"
+  name = "${var.project_name}-vpc-${var.env}"
   cidr = var.cidr
 
   azs             = var.azs
@@ -12,8 +12,8 @@ module "vpc" {
   enable_vpn_gateway = false
 
   tags = {
-    Terraform = "true"
-    Environment = "dev"
-    RepoName = "particle41"
+    Terraform   = "true"
+    Environment = var.env
+    RepoName    = "particle41"
   }
 }
