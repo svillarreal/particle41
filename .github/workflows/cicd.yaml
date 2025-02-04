@@ -29,15 +29,17 @@ jobs:
           terraform init -reconfigure -backend-config="bucket=terraform-remote-state-particle41-dev" \
           -backend-config="dynamodb_table=terraform-remote-state-lock-particle41-dev"\
           -backend-config="key=particle41/dev/terraform.tfstate"
+      - name: List directory contents
+        run: ls -R terraform
       - name: Terraform Validate
         working-directory: terraform
         run: terraform validate
       - name: Terraform Plan
         working-directory: terraform
-        run: terraform plan -var-file="./vars/dev.tfvars"
+        run: terraform plan -var-file="vars/dev.tfvars"
       - name: Terraform Apply
         working-directory: terraform
-        run: terraform apply -var-file="./vars/dev.tfvars" -auto-approve
+        run: terraform apply -var-file="vars/dev.tfvars" -auto-approve
   BuildApp:
     needs: DeployTerraform
     runs-on: ubuntu-latest
