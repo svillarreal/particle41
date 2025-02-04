@@ -27,7 +27,7 @@ jobs:
         working-directory: terraform
         run: |
           terraform init -reconfigure -backend-config="bucket=terraform-remote-state-particle41-dev" \
-          -backend-config="dynamodb_table=terraform-remote-state-lock-particle41-dev"\
+          -backend-config="dynamodb_table=terraform-remote-state-lock-particle41-dev" \
           -backend-config="key=particle41/dev/terraform.tfstate"
       - name: Terraform Validate
         working-directory: terraform
