@@ -29,6 +29,10 @@ npm test
 npm run lint
 npm run lint-fix
 
+## Audit
+
+npm audit
+
 ## Run Locally
 
 npm start
