@@ -34,10 +34,10 @@ jobs:
         run: terraform validate
       - name: Terraform Plan
         working-directory: terraform
-        run: terraform plan -var-file="vars/dev.tfvars"
+        run: terraform plan -var-file="./vars/dev.tfvars"
       - name: Terraform Apply
         working-directory: terraform
-        run: terraform apply -var-file="vars/dev.tfvars" -auto-approve
+        run: terraform apply -var-file="./vars/dev.tfvars" -auto-approve
   BuildApp:
     needs: DeployTerraform
     runs-on: ubuntu-latest
