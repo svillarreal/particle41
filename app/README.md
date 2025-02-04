@@ -15,6 +15,12 @@ curl --location 'http://localhost:3000/api/time'
 "ip": "::ffff:10.0.2.233"
 }
 
+## About buildx for Docker Builds
+
+`docker buildx` is used (instead of `docker build`) because it allows us to build images for multiple architectures (AMD64 and ARM64). This is important because our EKS nodes might have different CPU types, and we want to make sure the container runs on any of them.
+
+Instead of using docker build and docker push separately, buildx does everything in one command, so it’s faster and avoids issues with architecture compatibility.
+
 ## Build
 
 npm install
