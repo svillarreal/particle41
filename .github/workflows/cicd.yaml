@@ -4,8 +4,8 @@ on:
     branches:
       - main
     paths:
-      - "/app/**"
-      - "/terraform/**"
+      - "app/**"
+      - "terraform/**"
   workflow_dispatch:
 jobs:
   DeployTerraform:
