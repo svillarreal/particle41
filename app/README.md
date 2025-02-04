@@ -12,7 +12,7 @@ curl --location 'http://localhost:3000/api/time'
 
 {
 "timestamp": "2025-02-04T01:08:24.856Z",
-"ip": "::ffff:10.0.2.233"
+"ip": "10.0.2.233"
 }
 
 ## About buildx for Docker Builds

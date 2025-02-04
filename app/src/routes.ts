@@ -16,7 +16,7 @@ export class Routes {
     doGetTime = async (req: Request, res: Response): Promise<void> => {
         const body: TimeResponse = {
             timestamp: this.timeService.getTime(),
-            ip: req.ip
+            ip: req.ip ? req.ip.replace("::ffff:", '') : req.ip
         };
         res.status(StatusCodes.OK).json(body);
     }

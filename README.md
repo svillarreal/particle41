@@ -6,6 +6,7 @@ Particle41 is REST API that serves time built with Node.js, TypeScript and AWS i
 
 ## Folder Structure
 
+```plaintext
 .
 ├── .github/
 │   └── workflows/
@@ -31,6 +32,7 @@ Particle41 is REST API that serves time built with Node.js, TypeScript and AWS i
 │   ├── versions.tf
 │   └── README.md
 └── README.md
+```
 
 ## Repository
 
