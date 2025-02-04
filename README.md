@@ -8,28 +8,28 @@ Particle41 is REST API that serves time built with Node.js, TypeScript and AWS i
 
 .
 ├── .github/
-│ └── workflows/
-│ └── cicd.yaml
+│   └── workflows/
+│       └── cicd.yaml
 ├── app/
-│ ├── src/
-│ ├── test/
-│ ├── kubernetes/
-│ │ ├── deployment.yaml
-│ │ └── service.yaml
-│ ├── Dockerfile
-│ ├── package.json
-│ └── README.md
+│   ├── src/
+│   ├── test/
+│   ├── kubernetes/
+│   │   ├── deployment.yaml
+│   │   └── service.yaml
+│   ├── Dockerfile
+│   ├── package.json
+│   └── README.md
 ├── terraform/
-│ ├── vars/
-│ │ └── dev.tfvars
-│ ├── _main.tf
-│ ├── ecr.tf
-│ ├── eks.tf
-│ ├── outputs.tf
-│ ├── vpc.tf
-│ ├── variables.tf
-│ ├── versions.tf
-│ └── README.md
+│   ├── vars/
+│   │   └── dev.tfvars
+│   ├── _main.tf
+│   ├── ecr.tf
+│   ├── eks.tf
+│   ├── outputs.tf
+│   ├── vpc.tf
+│   ├── variables.tf
+│   ├── versions.tf
+│   └── README.md
 └── README.md
 
 ## Repository

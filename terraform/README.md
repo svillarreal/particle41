@@ -22,7 +22,7 @@ It is important to note that the Terraform state is stored in S3. Also, the lock
 
 ## Load Balancer
 
-Load Balancer is created and managed by Kubernetes. Since we are using a LoadBalancer Service, Kubernetes asks AWS to create the ALB automatically and connects it to our pods. This way, we don't have to configure the ALB ourselves, and Kubernetes takes care of registering the instances, health checks, and routing.
+Load Balancer is created and managed by Kubernetes. Since we are using a LoadBalancer Service, Kubernetes asks AWS to create the ALB automatically and connects it to our pods. This way, we don't have to configure the ELB ourselves, and Kubernetes takes care of registering the instances, health checks, and routing.
 
 ## How to Deploy
 
