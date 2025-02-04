@@ -27,7 +27,7 @@ npm test
 ## Lint
 
 npm run lint
-npm run lint-fix
+npm run lint:fix
 
 ## Audit
 
