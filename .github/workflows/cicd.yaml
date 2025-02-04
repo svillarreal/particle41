@@ -22,6 +22,7 @@ jobs:
         working-directory: app
       - name: Test
         run: npm test
+        working-directory: app
       - name: Audit
         run: npm audit --audit-level=low
         working-directory: app
@@ -30,6 +31,7 @@ jobs:
         working-directory: app
       - name: Build TypeScript
         run: npm run build
+        working-directory: app
       - name: Login to ECR
         run: aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 851717133722.dkr.ecr.us-east-1.amazonaws.com
         env:
