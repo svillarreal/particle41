@@ -20,6 +20,10 @@ It is important to note that the Terraform state is stored in S3. Also, the lock
 - **AWS CLI** installed
 - AWS credentials configured (`aws configure`)
 
+## Load Balancer
+
+Load Balancer is created and managed by Kubernetes. Since we are using a LoadBalancer Service, Kubernetes asks AWS to create the ALB automatically and connects it to our pods. This way, we don't have to configure the ELB ourselves, and Kubernetes takes care of registering the instances, health checks, and routing.
+
 ## How to Deploy
 
 ```sh
@@ -31,4 +35,27 @@ terraform init -reconfigure -backend-config="bucket=terraform-remote-state-parti
 terraform plan -var-file="vars/dev.tfvars"
 
 terraform apply -var-file="vars/dev.tfvars"
+```
+
+## How to Get the Service URL
+Once deployed, you can get the service's **base URL** by running:
+
+```sh
+kubectl get svc my-app-service
+```
+
+Then, check `EXTERNAL-IP` attribute.
+
+##  Important: Delete the Load Balancer before destroying the stack
+
+Before running terraform destroy, manually delete the CLB to avoid orphaned resources:
+
+```sh
+aws elb delete-load-balancer --load-balancer-name load-balancer-name
+```
+
+Then can proceed with:
+
+```sh
+terraform destroy -var-file="vars/dev.tfvars" -auto-approve
 ```
