@@ -4,6 +4,10 @@
 
 This doc explains how to set up AWS infrastructure using Terraform, that is, required **variables, IAM permissions, and how to deploy**. This stack provisions AWS infrastructure for a EKS cluster inside a custom VPC using Terraform.
 
+## Terraform State
+
+It is important to note that the Terraform state is stored in S3. Also, the locks are backed by a DynamoDB table (check the `_main.tf` to see more details).
+
 ## Key Files
 
 - terraform/vpc.tf
