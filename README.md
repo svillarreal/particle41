@@ -22,7 +22,7 @@ Particle41 is REST API that serves time built with Node.js, TypeScript and AWS i
 ├── terraform/
 │ ├── vars/
 │ │ └── dev.tfvars
-│ ├── \_main.tf
+│ ├── _main.tf
 │ ├── ecr.tf
 │ ├── eks.tf
 │ ├── outputs.tf
