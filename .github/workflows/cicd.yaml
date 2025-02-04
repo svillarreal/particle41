@@ -8,7 +8,35 @@ on:
       - "/terraform/**"
   workflow_dispatch:
 jobs:
-  build-app:
+  DeployTerraform:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Configure Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform-version: "1.10.5"
+      - name: Setup AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-key-id: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          region: us-east-1
+      - name: Terraform Init
+        run: |
+          tf init -reconfigure -backend-config="bucket=terraform-remote-state-particle41-dev" \
+          -backend-config="dynamodb_table=terraform-remote-state-lock-particle41-dev"\
+          -backend-config="key=particle41/dev/terraform.tfstate"
+      - name: Terraform Validate
+        working-directory: terraform
+        run: terraform validate
+      - name: Terraform Plan
+        working-directory: terraform
+        run: terraform plan -var-file="vars/dev.tfvars"
+      - name: Terraform Apply
+        working-directory: terraform
+        run: terraform apply -var-file="vars/dev.tfvars" -auto-approve
+  BuildApp:
+    needs: DeployTerraform
     runs-on: ubuntu-latest
     steps:
       - name: Get Code
