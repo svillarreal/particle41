@@ -4,6 +4,7 @@ on:
     branches:
       - main
     paths:
+      - ".github/**"
       - "app/**"
       - "terraform/**"
   workflow_dispatch:
@@ -76,7 +77,7 @@ jobs:
       - name: Build and Push Docker Image to ECR
         working-directory: app
         run: |
-          IMAGE_TAG=851717133722.dkr.ecr.us-east-1.amazonaws.com/particle41-ecr-dev:${{ github.sha }}
+          IMAGE_TAG=851717133722.dkr.ecr.us-east-1.amazonaws.com/particle41-ecr-dev:latest
           docker buildx build --platform linux/amd64,linux/arm64 -t $IMAGE_TAG --push .
   DeployApp:
     runs-on: ubuntu-latest
