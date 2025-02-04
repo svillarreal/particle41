@@ -2,7 +2,7 @@
 
 ## Description
 
-This is a TypeScript + NodeJS app that uses Express library to expose a REST API that serves the current time in ISO format, as well as the IP address.
+This is a TypeScript + NodeJS app that uses Express library to expose a REST API that serves the current time in ISO format, as well as the IP address. This app is Dockerized since it is expected to run in a Kubernetes cluster (under AWS EKS). See `Dockerfile` for more details. 
 
 ## Request Example
 
