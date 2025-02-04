@@ -45,6 +45,13 @@ This app is deployed with a GitHub Actions Workflow, whose definition could be f
 
 This CICD pipeline deploys the Terraform infra in AWS (VPC, EKS, etc) and then Builds and Pushes the TypeScript app to ECR.
 
+It is important to mention that this CICD process requires the following secrets:
+
+- AWS_ACCESS_KEY_ID
+- AWS_SECRET_ACCESS_KEY
+
+Please, don't forget to set them properly in GitHub.
+
 ## Setup
 
 Follow these docs to get started:
