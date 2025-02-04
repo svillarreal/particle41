@@ -14,6 +14,15 @@ module "vpc" {
   tags = {
     Terraform   = "true"
     Environment = var.env
-    RepoName    = "particle41"
+    RepoName    = var.project_name
+  }
+
+  public_subnet_tags = {
+    "kubernetes.io/role/elb" = "1"
+  }
+
+  private_subnet_tags = {
+    "kubernetes.io/role/internal-elb"                          = "1"
+    "kubernetes.io/cluster/${var.project_name}-eks-${var.env}" = "owned"
   }
 }
