@@ -1,0 +1,13 @@
+{
+  "loader": "ts-node/esm",
+  "extensions": [
+    "ts"
+  ],
+  "recursive": true,
+  "require": [
+    "ts-node/esm"
+  ],
+  "spec": [
+    "test/**/*.spec.ts"
+  ]
+}
